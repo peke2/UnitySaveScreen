@@ -4,8 +4,13 @@ using UnityEngine;
 
 public class Rotator : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
+    private void Awake()
+    {
+        Application.targetFrameRate = 60;
+    }
+
+    // Use this for initialization
+    void Start () {
 		
 	}
 	
