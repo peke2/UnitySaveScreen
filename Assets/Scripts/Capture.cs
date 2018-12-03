@@ -80,7 +80,8 @@ public class Capture : MonoBehaviour {
 
         //  カメラロールに保存
 #if UNITY_IOS
-        SaveToCameraRoll(outputPath, "ButtonCapture", "saveCompleteCallback");
+        //SaveToCameraRoll(outputPath, "ButtonCapture", "saveCompleteCallback");
+        SaveToCameraRoll(outputPath, gameObject.name, "saveCompleteCallback");
 #endif
         Debug.Log("カメラロールへの保存完了");
 
@@ -92,5 +93,12 @@ public class Capture : MonoBehaviour {
     void saveCompleteCallback(string path)
     {
         Debug.Log("削除対象["+path+"]");
+        if (!File.Exists(path))
+        {
+            Debug.Log("ファイルが無いので削除中止");
+            return;
+        }
+        File.Delete(path);
+        Debug.Log("ファイルの削除完了");
     }
 }

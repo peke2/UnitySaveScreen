@@ -21,8 +21,8 @@ public class ReceiveCallback : MonoBehaviour {
 		
 	}
 
-    void called()
+    void called(string message)
     {
-        Debug.Log("プラグインからのコールバック");
+        Debug.Log("プラグインからのコールバック->"+message);
     }
 }
